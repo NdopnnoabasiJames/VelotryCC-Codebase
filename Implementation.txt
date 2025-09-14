@@ -1,0 +1,134 @@
+Here’s a **clean roadmap** you can follow to build this project step by step. It’s structured in **phases**, each one building on the previous, so you’ll always have something functional to show.
+
+---
+
+## **Phase 1 – Foundation (Core Structure)**
+
+Lay the groundwork for both frontend and backend so you don’t run into issues later.
+
+* **Backend Setup (NestJS)**
+
+  * Set up the project structure with modules for:
+
+    * **Auth** (JWT-based login and registration).
+    * **Users** (member profiles, admin roles).
+    * **Rides** (ride creation, scheduling, ride history).
+  * Configure MongoDB with Prisma
+  * Implement role-based access:
+
+    * Ride Admin → Full control,Can create/manage rides, can make members admin
+    * Regular Rider → View and register for rides.
+
+* **Frontend Setup**
+
+  * Create a Bootstrap-powered layout with these base pages:
+
+    * Home (landing page with mission & upcoming rides).
+    * Login / Register.
+    * Dashboard (different views for admins vs riders).
+  * Connect the frontend to backend APIs for auth and user management.
+  * Set up a basic global state management system (e.g., Redux or Context API).
+
+> **Goal:** A functional platform where members can register, log in, and admins can create rides.
+
+---
+
+## **Phase 2 – Core Features**
+
+Focus on the essential features that riders will use most often.
+
+* **Ride Scheduling**
+
+  * Admins create rides with details: meeting point, time, route, distance.
+  * Riders can view rides and indicate attendance.
+
+* **Notifications & Reminders**
+
+  * Integrate with WhatsApp API or SMS API for automatic reminders.
+  * Example: *“Tomorrow’s ride: Meeting point – Stadium, 6:00 AM.”*
+
+* **Ride History**
+
+  * Store past rides with basic stats like attendance and route.
+
+* **UI Polish**
+
+  * Add maps for meeting points using Google Maps API.
+  * Improve dashboard design for usability.
+
+> **Goal:** By the end of this phase, the club can fully use the platform for ride planning.
+
+---
+
+## **Phase 3 – Live Peloton Tracking (Signature Feature)**
+
+This is what makes the platform stand out and directly benefits riders.
+
+* **Backend**
+
+  * Implement Socket.IO or WebSockets to broadcast rider locations in real-time.
+  * Secure endpoints so only active ride participants can share or view locations.
+
+* **Frontend**
+
+  * Build a live map screen:
+
+    * Shows peloton position in real-time.
+    * Shows checkpoints or meeting points.
+  * Include a “Join Ride” button so latecomers can find where the group is.
+
+* **Performance**
+
+  * Optimize location updates to prevent lag or heavy data usage.
+  * Consider using geohashing or sending updates at intervals (e.g., every 5 seconds).
+
+> **Goal:** Riders who join late can open the app, see exactly where everyone is, and catch up.
+
+---
+
+## **Phase 4 – NGO Readiness**
+
+Prepare for the club’s official registration and public growth.
+
+* **Donation & Sponsorship Module**
+
+  * Allow online donations through Paystack or Stripe.
+  * Create a sponsorship page where businesses can partner with the club.
+  * Display sponsors on the homepage.
+
+* **Event Reporting**
+
+  * Admins can generate reports on past events and rides.
+  * Export data as PDFs or spreadsheets for official NGO documentation.
+
+* **Volunteer Management**
+
+  * Build a simple form for members or outsiders to sign up for charity or community rides.
+  * Include approval workflows for admins.
+
+> **Goal:** Transition the platform into an official public-facing NGO tool.
+
+---
+
+## **Phase 5 – Gamification & Community Engagement**
+
+Add features that keep members coming back and attract more riders.
+
+* **Leaderboards**
+
+  * Track ride stats like total distance or attendance.
+  * Award badges for consistency or speed.
+
+* **Photo Gallery**
+
+  * Let members upload photos from rides.
+  * Create a media section for public outreach.
+
+* **Social Features**
+
+  
+  * Commenting on rides or events.
+
+ **Goal:** Make the platform fun and community-driven, not just functional.
+
+

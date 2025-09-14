@@ -1,0 +1,143 @@
+Here’s a **concise but clear PRD** (Product Requirements Document) that highlights the **core vision**, **key features**, and **user flows** so so you can fully understand what you want to build.
+
+
+# **Cycling Club Management & Ride Tracking Platform – PRD**
+
+---
+
+## **1. Vision**
+
+A unified digital platform for cycling clubs to **manage members, organize rides, track live peloton positions**, and **support NGO activities**, while fostering community engagement and providing value to both riders and sponsors.
+
+The platform will start with your club but be scalable to support other clubs in the future.
+
+---
+
+## **2. Core Objectives**
+
+* Streamline **club management** as the organization transitions into an official NGO.
+* Improve **ride coordination** with scheduling, notifications, and real-time peloton tracking.
+* Create a **public-facing portal** to showcase the club’s activities and attract donors/sponsors.
+* Provide **community features** to engage members and grow participation.
+
+---
+
+## **3. Target Users**
+
+* **Regular Riders**
+  Join rides, track peloton location, view club activities, and engage with the community.
+* **Ride Admins**
+  Schedule rides, manage participants, and monitor live ride data.
+  Manage members, events, finances, sponsorships, and NGO operations.
+* **Public Visitors**
+  View the club’s public website, donate, or register to volunteer.
+
+---
+
+## **4. Key Problems Solved**
+
+* Latecomers **cannot locate the peloton** after missing the meeting point.
+* Club operations are currently **scattered across WhatsApp, spreadsheets, and verbal communication**.
+* As the club transitions to an NGO, there’s **no professional digital presence** for reporting and fundraising.
+* Sponsors **lack visibility** into the club’s impact and reach.
+
+---
+
+## **5. Core Features**
+
+### **Phase 1 – Foundation**
+
+* **User Authentication & Profiles**
+
+  * Rider, Admin, and Super Admin roles.
+  * Profile fields: name, photo, emergency contact, bike type, etc.
+  * Admin approval flow for new members.
+
+* **Ride Scheduling**
+
+  * Admins create rides with time, location, route, and difficulty level.
+  * Riders view upcoming rides and register to attend.
+  * WhatsApp/SMS notifications before ride day.
+
+---
+
+### **Phase 2 – Ride Day Experience**
+
+* **Live Peloton Tracking (Flagship Feature)**
+
+  * Riders broadcast live location during rides.
+  * Latecomers can see the peloton’s position on a map in real time.
+  * Checkpoints displayed along the route.
+  * Location updates optimized for low data usage.
+
+* **Attendance Tracking**
+
+  * Automatic attendance logging when a rider joins a live ride.
+  * Manual override for admins.
+
+---
+
+### **Phase 3 – NGO & Growth Tools**
+
+* **Public Website**
+
+  * Showcase past rides, events, and achievements.
+  * Highlight impact projects and outreach programs.
+  * SEO-friendly to attract sponsors and new members.
+
+* **Donations & Sponsorships**
+
+  * Secure online donation system (Paystack/Stripe).
+  * Tiered sponsorship packages with branding visibility.
+
+* **Event Reporting**
+
+  * Generate reports for past events and rides.
+  * Export as PDF for NGO records.
+
+---
+
+### **Phase 4 – Engagement & Community**
+
+* **Leaderboards & Achievements**
+
+  * Track distance, attendance, and consistency.
+  * Award badges for milestones.
+
+* **Media Gallery**
+
+  * Upload and display photos from rides and events.
+
+* **Volunteer Portal**
+
+  * Allow sign-ups for charity and community outreach rides.
+
+---
+
+## **6. Technical Overview**
+
+* **Backend:** NestJS
+
+  * Modules: Auth, Users, Rides, Live Tracking, Donations, Reports.
+  * Real-time location: Socket.IO or WebSockets.
+  * Database: PostgreSQL or MongoDB.
+
+* **Frontend:** Bootstrap + custom UI
+
+  * Responsive design for desktop and mobile browsers.
+
+* **Integrations:**
+
+  * Google Maps API – mapping and live tracking.
+  * WhatsApp/SMS API – ride reminders and alerts.
+  * Paystack/Stripe – donations and sponsorships.
+
+
+## **9. Constraints & Considerations**
+
+* Start lightweight to avoid overwhelming members at launch.
+* Prioritize **live tracking and core management** features before engagement extras.
+* Ensure **data privacy** for rider location sharing.
+* Optimize for **low-bandwidth regions**, as not all riders may have fast internet.
+
+

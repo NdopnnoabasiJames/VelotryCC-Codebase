@@ -1,0 +1,1 @@
+Place the provided club logo image here as 'logo.png' (recommended size: 600x400 or 800x800). The Navbar and Home pages reference '/logo.png'. If you have the image file, copy it into this folder to replace the placeholder.

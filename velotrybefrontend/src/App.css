@@ -1,0 +1,82 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Buttons hover */
+.btn-lg:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+/* Hero image pulse */
+@keyframes hero-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+#hero { overflow: hidden; }
+#hero .container { animation: hero-pulse 12s ease-in-out infinite; }
+
+/* CTA button defaults for palette */
+.btn-primary {
+  background-color: #FF7F27; /* energetic orange */
+  color: #fff;
+  border: none;
+}
+.btn-primary:hover { filter: brightness(0.95); }
+.btn-secondary {
+  background-color: #6FA9DC; /* cool light blue */
+  color: #000;
+  border: none;
+}
+.btn-secondary:hover { filter: brightness(0.97); }
+
+/* Responsive tweaks */
+@media (max-width: 767px) {
+  #hero h1 { font-size: 2rem !important; }
+  #hero p { font-size: 1rem !important; }
+}
