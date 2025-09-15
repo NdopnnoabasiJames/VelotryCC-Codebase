@@ -13,7 +13,7 @@ const Home: React.FC = () => {
           backgroundImage: 'url(https://via.placeholder.com/1600x600)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          color: COLORS.softGray,
+          color: COLORS.white,
         }}
       >
         <div className="container py-5">
@@ -22,20 +22,19 @@ const Home: React.FC = () => {
               <div className="d-block d-md-none mb-3">
                 <img src={logo} alt="Velotrybe logo" style={{ maxHeight: 80, objectFit: 'contain' }} />
               </div>
-              <h1 style={{ fontSize: '3rem', color: COLORS.softGray, textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>Cycling Club</h1>
-              <p style={{ fontSize: '1.25rem', color: COLORS.softGray, opacity: 0.95 }}>Ride together. Grow stronger. Support our community.</p>
+              <h1 style={{ fontSize: '3rem', color: COLORS.white, textShadow: '0 2px 12px rgba(0,0,0,0.6)' }}>Cycling Club</h1>
+              <p style={{ fontSize: '1.25rem', color: COLORS.white, opacity: 0.95 }}>Ride together. Grow stronger. Support our community.</p>
               <div className="mt-4">
-                <a href="#join" className="btn btn-lg me-3" style={{ backgroundColor: COLORS.primaryGreen, color: '#fff', border: 'none', transition: 'transform .18s' }}>Join the Club</a>
-                <a href="#rides" className="btn btn-lg" style={{ backgroundColor: COLORS.sunnyYellow, color: COLORS.deepNavy, border: 'none' }}>Upcoming Rides</a>
+                <a href="#join" className="btn btn-primary btn-lg me-3">Join the Club</a>
+                <a href="#rides" className="btn btn-secondary btn-lg">Upcoming Rides</a>
               </div>
             </div>
             <div className="col-md-5 d-none d-md-block">
-              <img src="https://via.placeholder.com/500x350" alt="Group ride" style={{ borderRadius: 12, boxShadow: '0 8px 24px rgba(0,0,0,0.2)' }} />
+              <img src={logo} alt="Group ride" style={{ borderRadius: 12, boxShadow: '0 8px 24px rgba(0,0,0,0.4)', maxWidth: '100%' }} />
             </div>
           </div>
         </div>
       </section>
-
       {/* About */}
       <section id="about" className="py-5" style={{ backgroundColor: COLORS.softGray }}>
         <div className="container">

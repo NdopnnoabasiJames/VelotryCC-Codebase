@@ -61,6 +61,7 @@ html {
 #hero { overflow: hidden; }
 #hero .container { animation: hero-pulse 12s ease-in-out infinite; }
 
+
 /* CTA button defaults for palette */
 .btn-primary {
   background-color: #FF7F27; /* energetic orange */
