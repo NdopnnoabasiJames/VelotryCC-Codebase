@@ -5,7 +5,7 @@ import logo from '../assets/WhatsApp Image 2025-09-14 at 22.49.41_35fe03be.jpg';
 
 const Navbar: React.FC = () => (
   <nav
-    className="navbar navbar-expand-lg"
+    className="navbar navbar-expand-lg fixed-top"
     style={{ backgroundColor: COLORS.deepNavy }}
   >
     <div className="container">

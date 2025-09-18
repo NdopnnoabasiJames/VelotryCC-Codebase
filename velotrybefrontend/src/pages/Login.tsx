@@ -29,36 +29,50 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="container mt-5" style={{ backgroundColor: COLORS.softGray, minHeight: '40vh', borderRadius: '12px', padding: '2rem' }}>
-      <h2 style={{ color: COLORS.deepNavy }}>Login</h2>
-      <Form title="Sign In" onSubmit={handleSubmit}>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
-          className="form-control mb-3"
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={form.password}
-          onChange={handleChange}
-          className="form-control mb-3"
-          required
-        />
-        <button type="submit" className="btn btn-primary" disabled={loading}>
-          {loading ? 'Logging in...' : 'Login'}
-        </button>
-      </Form>
-      {message && (
-        <div className="mt-3" style={{ color: message.includes('successful') ? COLORS.primaryGreen : COLORS.warmCoral }}>
-          {message}
+    <div className="container mt-5 d-flex justify-content-center">
+      <div className="card shadow-lg" style={{ maxWidth: '500px', width: '100%', borderRadius: '15px', border: 'none' }}>
+        <div className="card-body p-5">
+          <h2 className="text-center mb-4" style={{ color: COLORS.deepNavy, fontWeight: 'bold' }}>Welcome Back</h2>
+          <Form title="Sign In" onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label htmlFor="email" className="form-label" style={{ color: COLORS.darkCharcoal }}>Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                value={form.email}
+                onChange={handleChange}
+                className="form-control"
+                style={{ borderRadius: '8px', border: `1px solid ${COLORS.coolLightBlue}` }}
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="password" className="form-label" style={{ color: COLORS.darkCharcoal }}>Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                value={form.password}
+                onChange={handleChange}
+                className="form-control"
+                style={{ borderRadius: '8px', border: `1px solid ${COLORS.coolLightBlue}` }}
+                required
+              />
+            </div>
+            <button type="submit" className="btn btn-primary w-100" disabled={loading} style={{ borderRadius: '8px', fontWeight: 'bold' }}>
+              {loading ? 'Logging in...' : 'Login'}
+            </button>
+          </Form>
+          {message && (
+            <div className="mt-3 text-center" style={{ color: message.includes('successful') ? COLORS.primaryGreen : COLORS.warmCoral, fontWeight: 'bold' }}>
+              {message}
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 };

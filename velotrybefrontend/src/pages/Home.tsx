@@ -8,7 +8,7 @@ const Home: React.FC = () => {
       {/* Hero */}
       <section
         id="hero"
-        className="py-5"
+        className="py-3"
         style={{
           backgroundImage: 'url(https://via.placeholder.com/1600x600)',
           backgroundSize: 'cover',
