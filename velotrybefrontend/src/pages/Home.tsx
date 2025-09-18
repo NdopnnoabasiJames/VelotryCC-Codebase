@@ -1,6 +1,11 @@
 import React from 'react';
 import { COLORS } from '../styles/colors';
-import logo from '../assets/WhatsApp Image 2025-09-14 at 22.49.41_35fe03be.jpg';
+import logoUrl from '../assets/Logo.jpg';
+import picOne from '../assets/Picone.jpg';
+import picTwo from '../assets/Pictwo.jpg';
+import picThree from '../assets/picthree.jpg';
+import picFour from '../assets/Picfour.jpg';
+import picFive from '../assets/picfive.jpg';
 
 const Home: React.FC = () => {
   return (
@@ -8,29 +13,45 @@ const Home: React.FC = () => {
       {/* Hero */}
       <section
         id="hero"
-        className="py-3"
+        className="position-relative"
         style={{
-          backgroundImage: 'url(https://via.placeholder.com/1600x600)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          color: COLORS.white,
+          height: '420px',
+          background: 'none',
+          marginTop: '64px',
         }}
       >
-        <div className="container py-5">
-          <div className="row align-items-center">
-            <div className="col-md-7">
-              <div className="d-block d-md-none mb-3">
-                <img src={logo} alt="Velotrybe logo" style={{ maxHeight: 80, objectFit: 'contain' }} />
-              </div>
-              <h1 style={{ fontSize: '3rem', color: COLORS.white, textShadow: '0 2px 12px rgba(0,0,0,0.6)' }}>Cycling Club</h1>
-              <p style={{ fontSize: '1.25rem', color: COLORS.white, opacity: 0.95 }}>Ride together. Grow stronger. Support our community.</p>
-              <div className="mt-4">
-                <a href="#join" className="btn btn-primary btn-lg me-3">Join the Club</a>
-                <a href="#rides" className="btn btn-secondary btn-lg">Upcoming Rides</a>
+        {/* Mobile: background image with overlay and centered text */}
+  <div className="d-block d-md-none position-relative w-100 h-100" style={{ height: '420px', backgroundImage: `linear-gradient(120deg, rgba(0,0,0,0.6) 0%, rgba(111,169,220,0.3) 100%), url(${logoUrl})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', color: COLORS.white }}>
+          <div className="container position-relative" style={{ zIndex: 2, height: '100%' }}>
+            <div className="row justify-content-center align-items-center h-100">
+              <div className="col-12 text-center py-5">
+                <h1 className="mb-3 fw-bold" style={{ fontSize: '2.2rem', letterSpacing: '1px', color: COLORS.white, textShadow: '0 4px 24px rgba(0,0,0,0.7)' }}>VELOTRYBE</h1>
+                <p className="lead mb-4" style={{ color: COLORS.white, fontWeight: 500, fontSize: '1.1rem', textShadow: '0 2px 12px rgba(0,0,0,0.5)' }}>
+                  Ride together. Grow stronger. Support our community.
+                </p>
+                <div className="d-flex flex-wrap gap-3 justify-content-center mt-3">
+                  <a href="#join" className="btn btn-primary btn-lg shadow">Join the Club</a>
+                  <a href="#rides" className="btn btn-secondary btn-lg shadow">Upcoming Rides</a>
+                </div>
               </div>
             </div>
-            <div className="col-md-5 d-none d-md-block">
-              <img src={logo} alt="Group ride" style={{ borderRadius: 12, boxShadow: '0 8px 24px rgba(0,0,0,0.4)', maxWidth: '100%' }} />
+          </div>
+        </div>
+        {/* Desktop/tablet: split layout with text left and image right */}
+        <div className="container d-none d-md-block h-100" style={{ height: '420px', backgroundColor: COLORS.deepNavy }}>
+          <div className="row align-items-center h-100">
+            <div className="col-md-7">
+              <h1 className="text-start mb-3 fw-bold" style={{ fontSize: '2.7rem', letterSpacing: '1px', color: COLORS.white, textShadow: '0 4px 24px rgba(0,0,0,0.7)' }}>VELOTRYBE Cycling Club</h1>
+              <p className="mb-4" style={{ color: COLORS.white, fontWeight: 500, fontSize: '1.25rem', textShadow: '0 2px 12px rgba(0,0,0,0.5)' }}>
+                Ride together. Grow stronger. Support our community.
+              </p>
+              <div className="d-flex flex-wrap gap-3 justify-content-start mt-3">
+                <a href="#join" className="btn btn-primary btn-lg shadow">Join the Club</a>
+                <a href="#rides" className="btn btn-secondary btn-lg shadow">Upcoming Rides</a>
+              </div>
+            </div>
+            <div className="col-md-5 text-center">
+              <img src={logoUrl} alt="Group ride" style={{ borderRadius: 12, boxShadow: '0 8px 24px rgba(0,0,0,0.4)', width: '100%', maxWidth: '350px', height: '300px', objectFit: 'cover', margin: '0 auto' }} />
             </div>
           </div>
         </div>
@@ -39,7 +60,7 @@ const Home: React.FC = () => {
       <section id="about" className="py-5" style={{ backgroundColor: COLORS.softGray }}>
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-md-6">
+            <div className="col-md-6 text-center text-md-start">
               <h2 style={{ color: COLORS.deepNavy }}>About Our Club</h2>
               <p style={{ color: COLORS.darkCharcoal }}>
                 We are a community-driven cycling club that organizes weekly rides, training, and outreach programs. Our mission is to make cycling accessible, safe, and fun for riders of all abilities.
@@ -49,7 +70,7 @@ const Home: React.FC = () => {
               </p>
             </div>
             <div className="col-md-6 text-center">
-              <img src="https://via.placeholder.com/600x400" alt="Cyclists" className="img-fluid rounded" />
+              <img src={picTwo} alt="Cyclists" className="img-fluid rounded" style={{ width: '650%', height: '40%' }} />
             </div>
           </div>
         </div>
@@ -74,10 +95,10 @@ const Home: React.FC = () => {
           <h3 style={{ color: COLORS.deepNavy }}>Join our community</h3>
           <p style={{ color: COLORS.darkCharcoal }}>Connect with us on social media and stay up to date with events.</p>
           <div className="d-flex justify-content-center gap-3 mt-3">
-            <a href="#" className="btn btn-light p-3 rounded-circle" aria-label="WhatsApp"><i className="fab fa-whatsapp fa-lg" style={{ color: COLORS.primaryGreen }}></i></a>
+            <a href="#" className="btn btn-light p-3 rounded-circle" aria-label="WhatsApp"><i className="fab fa-whatsapp fa-lg" style={{ color: 'green' }}></i></a>
             <a href="#" className="btn btn-light p-3 rounded-circle" aria-label="Instagram"><i className="fab fa-instagram fa-lg" style={{ color: '#C13584' }}></i></a>
             <a href="#" className="btn btn-light p-3 rounded-circle" aria-label="Facebook"><i className="fab fa-facebook fa-lg" style={{ color: '#1877F2' }}></i></a>
-            <a href="#" className="btn btn-light p-3 rounded-circle" aria-label="Twitter"><i className="fab fa-twitter fa-lg" style={{ color: '#1DA1F2' }}></i></a>
+            <a href="#" className="btn btn-light p-3 rounded-circle" aria-label="YouTube"><i className="fab fa-youtube fa-lg" style={{ color: '#FF0000' }}></i></a>
           </div>
         </div>
       </section>

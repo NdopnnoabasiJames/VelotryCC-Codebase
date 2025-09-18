@@ -29,7 +29,7 @@ const Register: React.FC = () => {
     <div className="container mt-5 d-flex justify-content-center">
       <div className="card shadow-lg" style={{ maxWidth: '500px', width: '100%', borderRadius: '15px', border: 'none' }}>
         <div className="card-body p-5">
-          <h2 className="text-center mb-4" style={{ color: COLORS.deepNavy, fontWeight: 'bold' }}>Join the Cycling Club</h2>
+          <h2 className="text-center mb-4" style={{ color: COLORS.deepNavy, fontWeight: 'bold' }}>Join VELOTRYBE</h2>
           <Form title="Sign Up" onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="name" className="form-label" style={{ color: COLORS.darkCharcoal }}>Full Name</label>

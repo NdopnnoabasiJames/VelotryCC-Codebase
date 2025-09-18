@@ -9,7 +9,7 @@ const Footer: React.FC = () => (
     <div className="container">
       <div className="row">
         <div className="col-md-6 text-md-start mb-2 mb-md-0">
-          <span style={{ color: COLORS.softGray }}>&copy; {new Date().getFullYear()} Cycling Club Platform</span>
+          <span style={{ color: COLORS.softGray }}>&copy; {new Date().getFullYear()} VELOTRYBE Cycling Club Platform</span>
         </div>
         <div className="col-md-6 text-md-end">
           <a href="#" style={{ color: COLORS.primaryGreen }} className="me-3">Home</a>
