@@ -80,6 +80,23 @@ html {
   transform: rotate(90deg) scale(1.05);
   transition: transform 300ms ease;
 }
+
+/* Typewriter styles */
+.typewriter-text {
+  font-family: inherit;
+  display: inline-block;
+}
+.cursor {
+  display: inline-block;
+  margin-left: 6px;
+  color: #fff;
+  opacity: 1;
+  animation: blink 1s steps(2, start) infinite;
+}
+@keyframes blink {
+  to { opacity: 0; }
+}
+.hero-suffix.visible { opacity: 1 !important; }
 /* Default image sizing for content images */
 .img-fluid, img.content-img {
   width: 100%;

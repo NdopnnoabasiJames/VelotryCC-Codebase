@@ -1,13 +1,86 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { COLORS } from '../styles/colors';
 import logoUrl from '../assets/Logo.jpg';
-import picOne from '../assets/Picone.jpg';
+// import picOne from '../assets/Picone.jpg';
 import picTwo from '../assets/Pictwo.jpg';
-import picThree from '../assets/picthree.jpg';
-import picFour from '../assets/Picfour.jpg';
-import picFive from '../assets/picfive.jpg';
+// import picThree from '../assets/picthree.jpg';
+// import picFour from '../assets/Picfour.jpg';
+// import picFive from '../assets/picfive.jpg';
 
 const Home: React.FC = () => {
+  // Simple typewriter hook/component
+  const Typewriter: React.FC<{ text: string; speed?: number; pause?: number; onCycle?: () => void }> = ({ text, speed = 90, pause = 2000, onCycle }) => {
+    const [display, setDisplay] = useState('');
+    const [running, setRunning] = useState(true);
+
+    // Refs to hold mutable timers and index so closures don't cause races
+    const charTimeoutRef = React.useRef<number | null>(null);
+    const pauseTimeoutRef = React.useRef<number | null>(null);
+    const idxRef = React.useRef(0);
+
+    // Clear any outstanding timers
+    const clearTimers = () => {
+      if (charTimeoutRef.current) {
+        window.clearTimeout(charTimeoutRef.current);
+        charTimeoutRef.current = null;
+      }
+      if (pauseTimeoutRef.current) {
+        window.clearTimeout(pauseTimeoutRef.current);
+        pauseTimeoutRef.current = null;
+      }
+    };
+
+    useEffect(() => {
+      let mounted = true;
+
+      const startTyping = () => {
+        clearTimers();
+        idxRef.current = 0;
+        setDisplay('');
+        setRunning(true);
+
+        const typeNext = () => {
+          if (!mounted) return;
+          const i = idxRef.current;
+          if (i < text.length) {
+            setDisplay((d) => d + text.charAt(i));
+            idxRef.current = i + 1;
+            charTimeoutRef.current = window.setTimeout(typeNext, speed);
+          } else {
+            // finished typing
+            setRunning(false);
+            if (onCycle) {
+              try { onCycle(); } catch (e) { /* swallow */ }
+            }
+            // wait 'pause' ms, then clear and restart
+            pauseTimeoutRef.current = window.setTimeout(() => {
+              if (!mounted) return;
+              setDisplay('');
+              setRunning(true);
+              // small timeout before starting next cycle to allow UI to update
+              pauseTimeoutRef.current = window.setTimeout(() => startTyping(), 120);
+            }, pause);
+          }
+        };
+
+        // start first char
+        charTimeoutRef.current = window.setTimeout(typeNext, speed);
+      };
+
+      startTyping();
+
+      return () => {
+        mounted = false;
+        clearTimers();
+      };
+    }, [text, speed, pause, onCycle]);
+
+    return <span className="typewriter-text">{display}<span className="cursor" style={{ opacity: running ? 1 : 0 }}>|</span></span>;
+  };
+
+  // Control hero suffix visibility
+  const [suffixVisible, setSuffixVisible] = useState(false);
+
   return (
     <main style={{ fontFamily: 'Inter, system-ui, Avenir, Helvetica, Arial, sans-serif' }}>
       {/* Hero */}
@@ -25,7 +98,9 @@ const Home: React.FC = () => {
           <div className="container position-relative" style={{ zIndex: 2, height: '100%' }}>
             <div className="row justify-content-center align-items-center h-100">
               <div className="col-12 text-center py-5">
-                <h1 className="mb-3 fw-bold" style={{ fontSize: '2.2rem', letterSpacing: '1px', color: COLORS.white, textShadow: '0 4px 24px rgba(0,0,0,0.7)' }}>VELOTRYBE</h1>
+                <h1 className="mb-3 fw-bold" style={{ fontSize: '2.2rem', letterSpacing: '1px', color: COLORS.white, textShadow: '0 4px 24px rgba(0,0,0,0.7)' }}>
+                  <Typewriter text="VELOTRYBE" speed={90} />
+                </h1>
                 <p className="lead mb-4" style={{ color: COLORS.white, fontWeight: 500, fontSize: '1.1rem', textShadow: '0 2px 12px rgba(0,0,0,0.5)' }}>
                   Ride together. Grow stronger. Support our community.
                 </p>
@@ -41,7 +116,10 @@ const Home: React.FC = () => {
         <div className="container d-none d-md-block h-100" style={{ height: '420px', backgroundColor: COLORS.deepNavy }}>
           <div className="row align-items-center h-100">
             <div className="col-md-7">
-              <h1 className="text-start mb-3 fw-bold" style={{ fontSize: '2.7rem', letterSpacing: '1px', color: COLORS.white, textShadow: '0 4px 24px rgba(0,0,0,0.7)' }}>VELOTRYBE Cycling Club</h1>
+              <h1 className="text-start mb-3 fw-bold" style={{ fontSize: '2.7rem', letterSpacing: '1px', color: COLORS.white, textShadow: '0 4px 24px rgba(0,0,0,0.7)' }}>
+                <Typewriter text="VELOTRYBE" speed={90} onCycle={() => setSuffixVisible(true)} />
+                <span className={`hero-suffix ${suffixVisible ? 'visible' : ''}`} style={{ marginLeft: 8, transition: 'opacity 500ms ease' }}>Cycling Club</span>
+              </h1>
               <p className="mb-4" style={{ color: COLORS.white, fontWeight: 500, fontSize: '1.25rem', textShadow: '0 2px 12px rgba(0,0,0,0.5)' }}>
                 Ride together. Grow stronger. Support our community.
               </p>
@@ -70,7 +148,7 @@ const Home: React.FC = () => {
               </p>
             </div>
             <div className="col-md-6 text-center">
-              <img src={picTwo} alt="Cyclists" className="img-fluid rounded" style={{ width: '650%', height: '40%' }} />
+              <img src={picTwo} alt="Cyclists" className="img-fluid rounded" style={{ width: '100%', maxWidth: '450px', height: 'auto' }} />
             </div>
           </div>
         </div>
